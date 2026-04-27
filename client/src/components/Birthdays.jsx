@@ -48,7 +48,7 @@ export default function Birthdays({ contacts }) {
 	return (
 		<div>
 			<div className={styles.header}>
-				<h1 className={styles.title}>Födelsedagar 🎂</h1>
+				<h1 className={styles.title}>Födelsedagar 🌮</h1>
 				<p className={styles.subtitle}>
 					{withBirthdays.length === 0
 						? "Inga sparade födelsedagar"
@@ -128,7 +128,7 @@ export default function Birthdays({ contacts }) {
 
 			{withBirthdays.length === 0 && (
 				<div className={styles.empty}>
-					<span>🎂</span>
+					<span>🌮</span>
 					<p>Inga kontakter har sparad födelsedag ännu.</p>
 				</div>
 			)}
