@@ -1,0 +1,81 @@
+:root {
+	--fox: #e8611a;
+	--fox-dark: #c44f0e;
+	--taco: #f5c842;
+	--cream: #fdf6ec;
+	--bark: #2d1a0e;
+	--bark-mid: #5c3a1e;
+	--bark-soft: #8b6347;
+	--surface: #ffffff;
+	--border: #e8d5c4;
+	--danger: #d63031;
+	--success: #00b894;
+	--radius: 10px;
+	--shadow: 0 2px 12px rgba(45, 26, 14, 0.1);
+	--shadow-lg: 0 8px 32px rgba(45, 26, 14, 0.15);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "DM Sans", sans-serif;
+	background: var(--cream);
+	color: var(--bark);
+	min-height: 100vh;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+	font-family: "Syne", sans-serif;
+	line-height: 1.2;
+}
+
+button {
+	font-family: "DM Sans", sans-serif;
+	cursor: pointer;
+	border: none;
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-weight: 500;
+	transition: all 0.15s ease;
+}
+
+input,
+select,
+textarea {
+	font-family: "DM Sans", sans-serif;
+	font-size: 14px;
+	border: 1.5px solid var(--border);
+	border-radius: var(--radius);
+	padding: 0.5rem 0.75rem;
+	background: var(--surface);
+	color: var(--bark);
+	width: 100%;
+	transition: border-color 0.15s;
+	outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	border-color: var(--fox);
+}
+
+label {
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--bark-soft);
+	display: block;
+	margin-bottom: 4px;
+}
