@@ -1,0 +1,103 @@
+.header {
+	margin-bottom: 1.5rem;
+}
+
+.title {
+	font-size: 1.8rem;
+	font-weight: 800;
+	color: var(--bark);
+}
+
+.form {
+	background: var(--surface);
+	border: 1.5px solid var(--border);
+	border-radius: var(--radius);
+	padding: 1.5rem;
+	box-shadow: var(--shadow);
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.emojiPicker {
+}
+
+.emojiGrid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 6px;
+}
+
+.emojiBtn {
+	font-size: 1.4rem;
+	padding: 0.3rem;
+	background: var(--cream);
+	border: 1.5px solid transparent;
+	border-radius: 8px;
+	width: 44px;
+	height: 44px;
+	transition: all 0.1s;
+}
+
+.emojiBtn:hover {
+	border-color: var(--fox);
+	transform: scale(1.1);
+}
+.emojiBtn.selected {
+	border-color: var(--fox);
+	background: #fff0e8;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.error {
+	color: var(--danger);
+	font-size: 13px;
+	background: #ffeaea;
+	padding: 0.5rem 0.75rem;
+	border-radius: 6px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.75rem;
+	padding-top: 0.5rem;
+}
+
+.cancelBtn {
+	background: transparent;
+	color: var(--bark-soft);
+	padding: 0.55rem 1.2rem;
+	border: 1.5px solid var(--border);
+}
+
+.cancelBtn:hover {
+	border-color: var(--bark-soft);
+	color: var(--bark);
+}
+
+.saveBtn {
+	background: var(--fox);
+	color: white;
+	padding: 0.55rem 1.4rem;
+	font-weight: 600;
+}
+
+.saveBtn:hover:not(:disabled) {
+	background: var(--fox-dark);
+}
+.saveBtn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
