@@ -33,6 +33,8 @@ fox-taco/
 │   │   ├── components/
 │   │   │   ├── Birthdays.jsx
 │   │   │   ├── Birthdays.module.css
+│   │   │   ├── ConfirmDialog.jsx
+│   │   │   ├── ConfirmDialog.module.css
 │   │   │   ├── ContactForm.jsx
 │   │   │   ├── ContactForm.module.css
 │   │   │   ├── ContactList.jsx
