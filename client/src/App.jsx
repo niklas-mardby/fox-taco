@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 import ContactList from "./components/ContactList.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import Birthdays from "./components/Birthdays.jsx";
+import ConfirmDialog from "./components/ConfirmDialog.jsx";
 import styles from "./App.module.css";
 
 const API = "/api/contacts";
 
 export default function App() {
 	const [contacts, setContacts] = useState([]);
-	const [view, setView] = useState("list"); // 'list' | 'form' | 'birthdays'
+	const [view, setView] = useState("list");
 	const [editing, setEditing] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState("");
+	const [confirmId, setConfirmId] = useState(null);
 
 	const fetchContacts = async () => {
 		try {
@@ -50,11 +52,15 @@ export default function App() {
 		setView("list");
 	};
 
-	const handleDelete = async (id) => {
-		if (!confirm("Vill du ta bort kontakten?")) return;
-		await fetch(`${API}/${id}`, { method: "DELETE" });
+	const handleDeleteRequest = (id) => setConfirmId(id);
+
+	const handleDeleteConfirm = async () => {
+		await fetch(`${API}/${confirmId}`, { method: "DELETE" });
+		setConfirmId(null);
 		await fetchContacts();
 	};
+
+	const handleDeleteCancel = () => setConfirmId(null);
 
 	const handleEdit = (contact) => {
 		setEditing(contact);
@@ -89,7 +95,7 @@ export default function App() {
 						className={`${styles.navBtn} ${view === "birthdays" ? styles.active : ""}`}
 						onClick={() => setView("birthdays")}
 					>
-						🎂 Födelsedagar
+						🌮 Födelsedagar
 					</button>
 				</nav>
 			</header>
@@ -103,7 +109,7 @@ export default function App() {
 						loading={loading}
 						onNew={handleNew}
 						onEdit={handleEdit}
-						onDelete={handleDelete}
+						onDelete={handleDeleteRequest}
 					/>
 				)}
 
@@ -116,6 +122,14 @@ export default function App() {
 				)}
 
 				{view === "birthdays" && <Birthdays contacts={contacts} />}
+
+				{confirmId !== null && (
+					<ConfirmDialog
+						message="Vill du ta bort kontakten? Det går inte att ångra."
+						onConfirm={handleDeleteConfirm}
+						onCancel={handleDeleteCancel}
+					/>
+				)}
 			</main>
 		</div>
 	);
